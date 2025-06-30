@@ -1,3 +1,12 @@
+from pathlib import Path
+import appdirs as ad
+
+# 🔧 Redirect yfinance cache to a writable local folder
+CACHE_DIR = ".cache"
+ad.user_cache_dir = lambda *args: CACHE_DIR
+Path(CACHE_DIR).mkdir(exist_ok=True)
+
+import yfinance as yf
 import streamlit as st
 import plotly.express as px
 from utils.fetch_data import get_stock_data
