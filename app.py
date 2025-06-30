@@ -6,11 +6,13 @@ st.set_page_config(page_title="Nifty 50 Tracker", layout="wide")
 st.title("📈 Nifty 50 Stock Fundamentals Dashboard")
 
 # Load stock symbols from file
-try:
-    with open("data/stock_list.txt", "r") as f:
-        stock_list = [line.strip().upper() for line in f if line.strip()]
-except FileNotFoundError:
-    stock_list = ["RELIANCE.NS", "TCS.NS", "INFY.NS"]
+# try:
+#     with open("data/stock_list.txt", "r") as f:
+#         stock_list = [line.strip().upper() for line in f if line.strip()]
+# except FileNotFoundError:
+#     stock_list = ["RELIANCE.NS", "TCS.NS", "INFY.NS"]
+
+stock_list = ["RELIANCE.NS", "TCS.NS", "INFY.NS"]
 
 symbols_input = st.text_area("Edit symbols (comma-separated):", ", ".join(stock_list))
 symbols = [s.strip().upper() for s in symbols_input.split(",") if s.strip()]
